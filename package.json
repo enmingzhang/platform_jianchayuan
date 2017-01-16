@@ -1,0 +1,18 @@
+{
+  "name": "wechat2",
+  "version": "0.0.1",
+  "main":"./app/chat/index.html",
+  "window":{
+    "title":"微聊",
+    "width": 900,
+    "height": 600,
+    "min_width": 900,
+    "min_height": 600,
+    "debug":true,
+    "toolbar":true,
+    "transparent":false,
+    "resize":true,
+    "frame":false
+
+  }
+}

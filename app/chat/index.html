@@ -1,0 +1,602 @@
+<!DOCTYPE HTML>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="assets/css/index.css">
+
+	</head>
+	<body>
+	<div class="body_content">
+	    <!-- 第一栏左侧菜单栏  -->
+		<div class="left_tab child_content">
+		    <!-- 头像  -->
+			<div class="header">
+				<img src="assets/header.jpg">
+			</div>
+
+			<div class="msg">
+				<a title="聊天" href="#" @click="changeTab('chat')">
+					<i v-bind:class="[chatActive ? 'chat_i_active' : 'chat_i']"></i>
+				</a>
+			</div>
+			<div class="user">
+				<a title="用户" href="#" @click="changeTab('user')">
+					<i v-bind:class="[userActive ? 'user_i_active' : 'user_i']"></i>
+				</a>
+			</div>
+			<div class="file">
+				<a title="文件" href="#" @click="changeTab('file')">
+					<i v-bind:class="[fileActive ? 'file_i_active' : 'file_i']"></i>
+				</a>
+			</div>
+			<div class="setting">
+				<a title="设置" href="#">
+					<i class="setting_i"></i>
+				</a>
+			</div>
+		</div>
+		<!-- 第二栏 选项栏 -->
+		<div class="left_nav child_content">
+			<!--  chat div  -->
+			<div class="chat_div" v-bind:class="[chatActive ? '' : 'hide']">
+				<div class="search_bar">
+					<i class="search_i"></i>
+        			<input type="text" placeholder="搜索">
+				</div>
+				<div class="chat_list">
+					<div class="chat_item"  v-bind:class="{ active: active_1}" @click="changeChat(1)">
+						<!-- 最后一条消息时间  -->
+						<div class="ext"><p class="attr">18:00</p></div>
+						<div class="avatar">
+							<!-- 好友头像 -->
+							<img class="img" src="assets/icon.png" alt="">
+							<!-- 未读消息数  -->
+							<!--<i class="icon tip_bg">3</i>-->
+						</div>
+
+						<div class="info">
+							<h3 class="nickname">
+								<!-- 好友昵称  -->
+								<span class="nickname_text">新闻通知</span>
+								<!-- <span class="nickname_count">(53)</span> -->
+							</h3>
+							<!-- 消息内容 -->
+							<p class="msg">
+								<span>情系腊八节，腊八吃什么</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="chat_item"  v-bind:class="{ active: active_2}" @click="changeChat(2)">
+						<!-- 最后一条消息时间  -->
+			            <div class="ext"><p class="attr">17:49</p></div>
+			            <div class="avatar">
+			            	<!-- 好友头像 -->
+			            	<img class="img" src="assets/fr1.jpg" alt="">
+			            	<!-- 未读消息数  -->
+			            	<i class="icon tip_bg">3</i>
+			            </div>
+
+			            <div class="info">
+			                <h3 class="nickname">
+			                	<!-- 好友昵称  -->
+			                    <span class="nickname_text">Mr.sunshine Z</span>
+			                    <!-- <span class="nickname_count">(53)</span> -->
+			                </h3>
+			                <!-- 消息内容 -->
+			 				<p class="msg">
+			                    <span>晚上八点半，我在万达等你</span>
+			                </p>
+			            </div>
+			        </div>
+
+			        <div class="chat_item"  v-bind:class="{ active: active_3}" @click="changeChat(3)">
+						<!-- 最后一条消息时间  -->
+			            <div class="ext"><p class="attr">17:49</p></div>
+			            <div class="avatar">
+			            	<!-- 好友头像 -->
+			            	<img class="img" src="assets/fr1.jpg" alt="">
+			            	<!-- 未读消息数  -->
+
+			            </div>
+
+			            <div class="info">
+			                <h3 class="nickname">
+			                	<!-- 好友昵称  -->
+			                    <span class="nickname_text">Mr.sunshine Z</span>
+			                    <!-- <span class="nickname_count">(53)</span> -->
+			                </h3>
+			                <!-- 消息内容 -->
+			 				<p class="msg">
+			                    <span>明晚八点</span>
+			                </p>
+			            </div>
+			        </div>
+
+			        <div class="chat_item"  v-bind:class="{ active: active_4}" @click="changeChat(4)">
+						<!-- 最后一条消息时间  -->
+			            <div class="ext"><p class="attr">17:49</p></div>
+			            <div class="avatar">
+			            	<!-- 好友头像 -->
+			            	<img class="img" src="assets/qlheadimg.jpg" alt="">
+			            	<!-- 未读消息数  -->
+							<i class="icon web_wechat_reddot ng-scope"></i>
+			            </div>
+
+			            <div class="info">
+			                <h3 class="nickname">
+			                	<!-- 好友昵称  -->
+			                    <span class="nickname_text">联调测试群组</span>
+			                    <!-- <span class="nickname_count">(53)</span> -->
+			                </h3>
+			                <!-- 消息内容 -->
+			 				<p class="msg">
+			                    <span>[46条]王共：.</span>
+			                </p>
+			            </div>
+			        </div>
+
+
+				</div>
+			</div>
+
+			<!--  user div  -->
+			<div class="chat_div" v-bind:class="[userActive ? '' : 'hide']">
+				<div class="search_bar">
+					<i class="search_i"></i>
+					<input type="text" placeholder="搜索">
+				</div>
+				<div class="user_content">
+					<ul id="demo">
+						<item
+								class="item"
+								:model="treeData">
+						</item>
+					</ul>
+
+
+				</div>
+			</div>
+
+			<!-- file div -->
+			<div class="chat_div" v-bind:class="[fileActive ? '' : 'hide']">
+				<div class="search_bar">
+					<i class="search_i"></i>
+					<input type="text" placeholder="搜索">
+				</div>
+				<div class="chat_list">
+					<div class="chat_item file_item" >
+						<!-- 最后一条消息时间  -->
+						<div class="ext"></div>
+						<div class="avatar">
+							<!-- 好友头像 -->
+							<img class="img" src="assets/pic.png" alt="" style="width: 80px;height: 80px;">
+
+						</div>
+
+						<div class="info">
+							<h3 class="nickname">
+								<!-- 好友昵称  -->
+								<span class="nickname_text">xxx图片文件</span>
+								<!-- <span class="nickname_count">(53)</span> -->
+							</h3>
+							<!-- 消息内容 -->
+							<p class="msg">
+								<span>&nbsp;&nbsp;</span>
+							</p>
+						</div>
+						<div class="file_user_info" style="font-size: 12px;">
+
+							16/04/25
+						</div>
+					</div>
+
+					<div class="chat_item file_item" >
+						<!-- 最后一条消息时间  -->
+						<div class="ext"></div>
+						<div class="avatar">
+							<!-- 好友头像 -->
+							<img class="img" src="assets/pic.png" alt="" style="width: 80px;height: 80px;">
+
+						</div>
+
+						<div class="info">
+							<h3 class="nickname">
+								<!-- 好友昵称  -->
+								<span class="nickname_text">xxx图片文件</span>
+								<!-- <span class="nickname_count">(53)</span> -->
+							</h3>
+							<!-- 消息内容 -->
+							<p class="msg">
+								<span>&nbsp;&nbsp;</span>
+							</p>
+						</div>
+						<div class="file_user_info" style="font-size: 12px;">
+
+							16/04/25
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- 第三栏 内容栏  -->
+		<div class="right_content child_content">
+
+			<!-- 聊天内容 -->
+			<div id="chatArea" class="box chat"  v-bind:class="classObject">
+			    <!--BEGIN HEADER-->
+			    <div class="box_hd">
+			    	<!--&lt;!&ndash; title 下拉区域 &ndash;&gt;-->
+			    	<div id="chatRoomMembersWrap" class="hide">
+			    		<div id="mmpop_chatroom_members" class="mmpop members_wrp slide-down" tabindex="-1" >
+			    			<div class="members">
+							     <div class="members_inner ng-scope">
+							        <div class="member opt">
+							            <i class="web_wechat_add_friends" ></i>
+							        </div>
+							        <div class="member" href="javascript:;">
+							            <img class="avatar" src="assets/fr1.jpg" alt="" title="">
+							            <p class="nickname " >Mr.sunshine Z</p>
+							        </div>
+					   			</div> 
+							</div>
+						</div>
+					</div>
+
+				<!--	&lt;!&ndash; title &ndash;&gt;-->
+					<div class="title_wrap">
+						<div class="back poi">
+							<a class="title_name">&nbsp;&nbsp;</a>
+							<i class="title_back_icon"></i>
+						</div>
+			            <div class="title poi">
+			                <a class="title_name">Mr.sunshine Z</a>
+			                <i class="web_wechat_up_icon"></i>
+			            </div>
+						<div class="right poi">
+							<a class="title_name">&nbsp;&nbsp;</a>
+							<i class="title_close_icon" onclick="closeMainWin()"></i>
+						</div>
+						<div class="right poi">
+							<a class="title_name">&nbsp;&nbsp;</a>
+							<i class="title_max_icon" onclick="maxMainWin()"></i>
+						</div>
+						<div class="right poi">
+							<a class="title_name">&nbsp;&nbsp;</a>
+							<i class="title_min_icon" onclick="minMainWin()"></i>
+						</div>
+
+
+			        </div>
+
+			    </div>
+				<!--END HEADER-->
+
+				<!--BEGIN BODY-->
+				<div class="scroll-wrapper box_bd chat_bd scrollbar-dynamic" style="position: absolute;">
+				<!-- 聊天窗口固定显示长度  -->
+				  <div jquery-scrollbar="" class="box_bd chat_bd scrollbar-dynamic scroll-content scroll-scrolly_visible" style="margin-bottom: 0px; margin-right: 0px; min-height: 369px;height: 90%;">
+					 <!-- 聊天窗口可滚动长度  -->
+				    <div  data-buffer-height="300"  class="ng-scope" style = "min-height:620px;height: 100%;">
+				        <!-- ##################################chat line################################ -->
+				            <div class="top-placeholder ng-scope" style="height: 0px;"></div>
+				            <div  class="ng-scope">
+				                 <div class="clearfix" >
+				                        <div style="overflow: hidden;" >
+				          
+				            
+				                                <div class="message ng-scope me" >
+				                                <p class="message_system ng-scope"><span class="content ng-binding">2:23</span></p><!-- end ngIf: message.MMTime -->
+				                                <img class="avatar" src="assets/header.jpg"  title="咖啡">
+				                                <div class="content">
+				                                    <div class="bubble js_message_bubble ng-scope bubble_primary right">
+				                                        
+				                                        <div class="bubble_cont primary ng-scope">
+				                                            <div class="attach">
+				                                                <div class="attach_bd">
+				                                                    <div class="cover">
+				                                                        <i class="web_wechat_folder ng-scope"></i>
+				                                                    </div>
+				                                                    <div class="cont">
+				                                                        <p class="title" >Sully.2016.1080p.BluRay.x264-SPARKS.idx</p>
+				                                                        <div class="opr">
+				                                                            <span class="ng-binding">73.2KB</span>
+				                                                            <span class="sep">|</span>
+				                        <a download="" href="https://file.wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetmedia?sender=@e5975cb893b48420e76fdf3490334a4d&amp;mediaid=@crypt_285c91e3_b4076de7f5325389f6c33d1db27d173a22ef3df0c88a589b488dc4ec75cf4d89ca667aa17a78b084eacbe87206eca2b728f500ba2aeef69b4490b91c385f962b4704de30a21c154f45b99bf4dc6b3b0d&amp;filename=Sully.2016.1080p.BluRay.x264-SPARKS.idx&amp;fromuser=126950715&amp;pass_ticket=undefined&amp;webwx_data_ticket=gScXt1vMo633ICYZdy%2BsuZFW" class="ng-scope">下载</a> 
+				                                                        </div>
+				                                                    </div>
+				                                                </div>
+				                                            </div>
+				                                        </div> 
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                </div>
+				            </div>
+				<!-- ##################################chat line################################ -->
+				        <div  class="ng-scope">
+				             <div class="clearfix" message-directive="">
+				                <div  style="overflow: hidden;">
+				                    <div  class="message ng-scope you">
+				                       
+				                        <img class="avatar" src="assets/fr1.jpg"  title="Mr.sunshine Z" >
+				                        <div class="content">
+				                            <div class="bubble js_message_bubble ng-scope bubble_default left" >
+				                                
+				                                <div class="bubble_cont ng-scope" >
+				                                    <div class="plain">
+				                                        <pre class="js_message_plain ng-binding" >好吧</pre>
+				                                        <img class="ico_loading hide" src="https://res.wx.qq.com/zh_CN/htmledition/v2/images/icon/ico_loading31e225.gif" alt="">
+				                                       <!--  <i class="hide ico_fail web_wechat_message_fail"  title="重新发送"></i> -->
+				                                    </div>
+				                                </div> 
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+				    <!-- ##################################chat line################################ -->
+				        <div class="ng-scope">       
+				             <div class="clearfix" message-directive="">
+				                <div style="overflow: hidden;">
+				    
+				                    <div class="message ng-scope me">
+				                            
+				                        <img class="avatar" src="assets/header.jpg" title="咖啡">
+				                        <div class="content">
+				                           <div class="bubble js_message_bubble ng-scope bubble_primary right no_arrow">
+				                                <div class="bubble_cont ng-scope" >
+				                                    <div class="picture" >
+				                                        <img class="msg-img" src="assets/chat.jpg">
+				                                        <i class="arrow"></i>
+				                                        <p class="loading hide" >
+				                                            <img src="https://res.wx.qq.com/zh_CN/htmledition/v2/images/icon/ico_loading31e225.gif" alt="">
+				                                        </p>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				        </div> 
+				<!-- ##################################chat line################################ -->
+				        <div class="ng-scope">
+				            <div class="clearfix" message-directive="">
+				                <div  style="overflow: hidden;" >
+				                    <div class="message ng-scope me" >
+				                        
+				                        <img class="avatar" src="assets/header.jpg" title="咖啡" >
+				                        <div class="content">
+				                            <div class="bubble js_message_bubble ng-scope bubble_primary right">
+				                                
+				                               <div class="bubble_cont ng-scope" >
+				                                    <div class="plain">
+				                                        <pre class="js_message_plain ng-binding" >嗯</pre>
+				                                        <img  class="ico_loading hide" src="https://res.wx.qq.com/zh_CN/htmledition/v2/images/icon/ico_loading31e225.gif" alt="">
+				                                        <!-- <i class="hide ico_fail web_wechat_message_fail" title="重新发送"></i> -->
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+				            </div>
+				        </div><!-- end ngRepeat: message in chatContent -->
+
+
+
+
+
+				        <div ng-style="{height:bottomHeight}" class="bottom-placeholder ng-scope" style="height: 0px;"></div>
+				    </div>
+				<!-- ##################################chat line################################ -->
+
+				    <div id="prerender" style="
+				          visibility: hidden;
+				      position: absolute;
+				      width: 100%;
+				      top: 333px;
+				      height: 0;
+				      padding: 0 19px;
+				      box-sizing: border-box;
+				      margin-left: -19px;
+				      overflow: hidden;
+				    "></div>
+				         
+				  </div>
+				    <div class="scroll-element scroll-x scroll-scrolly_visible">
+				        <div class="scroll-element_corner"></div>
+				        <div class="scroll-arrow scroll-arrow_less"></div>
+				        <div class="scroll-arrow scroll-arrow_more"></div>
+				        <div class="scroll-element_outer">    
+				            <div class="scroll-element_size"></div>    
+				            <div class="scroll-element_inner-wrapper">        
+				                <div class="scroll-element_inner scroll-element_track">            
+				                    <div class="scroll-element_inner-bottom"></div>        
+				                </div>    
+				            </div>    
+				            <div class="scroll-bar" style="width: 89px;">        
+				                <div class="scroll-bar_body">            
+				                    <div class="scroll-bar_body-inner"></div>        
+				                </div>        
+				                <div class="scroll-bar_bottom"></div>        
+				                <div class="scroll-bar_center"></div>    
+				            </div>
+				        </div>
+				    </div>
+				  <div class="scroll-element scroll-y scroll-scrolly_visible">
+				    <div class="scroll-element_corner"></div>
+				    <div class="scroll-arrow scroll-arrow_less"></div>
+				    <div class="scroll-arrow scroll-arrow_more"></div>
+				    <div class="scroll-element_outer">    
+				        <div class="scroll-element_size"></div>    
+				        <div class="scroll-element_inner-wrapper">        
+				            <div class="scroll-element_inner scroll-element_track">            
+				                <div class="scroll-element_inner-bottom"></div>        
+				            </div>    
+				        </div>    
+				        <div class="scroll-bar" style="height: 335px; top: 0px;">        
+				            <div class="scroll-bar_body">            
+				                <div class="scroll-bar_body-inner"></div>        
+				            </div>        
+				            <div class="scroll-bar_bottom"></div>        
+				            <div class="scroll-bar_center"></div>    
+				        </div>
+				  </div>
+				</div>
+
+				
+		    </div>
+
+		    <!--BEGIN FOOT -->
+				<div class="box_ft ng-scope" >
+			        <div class="toolbar" id="tool_bar">
+			            <a class="web_wechat_face" href="javascript:;" title="表情"></a>
+			            <a class="web_wechat_pic js_fileupload ng-isolate-scope webuploader-container"  title="图片和文件"><div class="webuploader-pick"></div><div id="rt_rt_1b5cc3tsnta7sf1bi6qf81efo1" style="position: absolute; top: 0px; left: 0px; width: 30px; height: 30px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></a>
+						<a class="web_wechat_screencut ng-isolate-scope" href="javascript:;" title="远程"></a>
+					</div>
+			        <div class="content ng-isolate-scope">
+			            <pre id="editArea"  class="flex edit_area ng-isolate-scope ng-pristine ng-valid" contenteditable="true" ></pre>
+			            <span class="caret_pos_helper" id="caretPosHelper"></span>
+			        </div>
+
+			        <div class="action">
+			            <span class="desc ng-scope">按下Ctrl+Enter换行</span>
+
+			            <a class="btn btn_send" href="javascript:;" >发送</a>
+			        </div>
+			    </div>
+				<!-- END FOOT -->
+
+		</div>
+
+			<!--新闻内容-->
+			<div id="newsArea" class="box chat "  v-bind:class="newsObject">
+				<div class="preview_area">
+					<form data-index="0" class="appmsg_item edit_item editing">
+
+						<div class="main_img">
+							<img class="title_img" src="http://ulive.ahgxtx.com/upload/news.jpg" data-coverid="0">
+							<h6 class="title">情系腊八节，腊八吃什么</h6>
+						</div>
+						<p class="intro"></p>
+						<input type="hidden" name="mediaId" value="">
+						<input type="hidden" name="title" placeholder="这是标题" value="情系腊八节，腊八吃什么">
+						<input type="hidden" name="cover_id">
+						<input type="hidden" name="intro" placeholder="这是摘要描述" value="">
+						<input type="hidden" name="author" placeholder="作者" value="test">
+						<input type="hidden" name="link" placeholder="外链">
+						<textarea style="display:none" name="content"></textarea>
+					</form>
+
+
+
+					<form data-index="1" class="appmsg_sub_item edit_item">
+						<p class="title">雾霾养生吃什么？5种素食带你走过雾霾天</p>
+						<div class="main_img"><img src="http://ulive.ahgxtx.com/upload/news2.jpg" data-coverid="0" style="width:100%;height: 100%;"></div>
+						<input type="hidden" name="mediaId" value="">
+						<input type="hidden" name="title" value="雾霾养生吃什么？5种素食带你走过雾霾天" placeholder="这是标题">
+						<input type="hidden" name="cover_id" value="">
+						<input type="hidden" name="intro" value="" placeholder="这是摘要描述">
+						<input type="hidden" name="author" value="test" placeholder="作者">
+						<input type="hidden" name="link" value="" placeholder="外链">
+						<textarea style="display:none" name="content"></textarea>
+					</form>
+					<form data-index="2" class="appmsg_sub_item edit_item">
+					<p class="title">感冒了吃什么好的快 经济又实惠的药茶疗法</p>
+					<div class="main_img"><img src="http://ulive.ahgxtx.com/upload/news3.jpg" data-coverid="0" style="width:100%;height: 100%;"></div>
+					<input type="hidden" name="mediaId" value="">
+					<input type="hidden" name="title" value="感冒了吃什么好的快 经济又实惠的药茶疗法" placeholder="这是标题">
+					<input type="hidden" name="cover_id" value="">
+					<input type="hidden" name="intro" value="阿斯顿" placeholder="这是摘要描述">
+					<input type="hidden" name="author" value="" placeholder="作者">
+					<input type="hidden" name="link" value="" placeholder="外链">
+					<textarea style="display:none" name="content"></textarea>
+					</form>
+				</div>
+			</div>
+
+			<!--好友资料-->
+			<div id="profileArea" class="box chat"  v-bind:class="profileObject">
+				<div class="profile">
+
+					<div class="avatar_profile">
+						<img class="img" src="assets/profile.jpg" alt="">
+					</div>
+
+					<div class="nickname_area">
+						<h4 class="nickname ng-binding" ng-bind-html="user.getDisplayName()">公司小王</h4>
+						<i ng-class="{'web_wechat_women': user.Sex == 2, 'web_wechat_men': user.Sex == 1}" class="web_wechat_women"></i>
+					</div>
+
+					<p class="signature ng-binding" ng-bind-html="user.Signature">人与人之间，自然是不同的，所以有距离。</p>
+
+					<div class="meta_area">
+						<div class="meta_item">
+							<label class="label ng-scope" for="">单位：</label>
+
+							<p class="value ng-binding" ng-bind-html="user.RemarkName || user.getDisplayName()">xxxx</p>
+						</div>
+
+						<div class="meta_item ng-scope" ng-if="user.Province">
+							<label class="label" for="">部门：</label>
+							<p class="value ng-binding">研发部</p>
+						</div>
+						<div class="meta_item ng-scope" ng-if="user.Province">
+							<label class="label" for="">职务：</label>
+							<p class="value ng-binding">工程师</p>
+						</div>
+						<div class="meta_item ng-scope" ng-if="user.Province">
+							<label class="label" for="">办公电话：</label>
+							<p class="value ng-binding">3338772</p>
+						</div>
+						<div class="meta_item ng-scope" ng-if="user.Province">
+							<label class="label" for="">专网电话：</label>
+							<p class="value ng-binding">3338772</p>
+						</div>
+						<div class="meta_item ng-scope" ng-if="user.Province">
+							<label class="label" for="">手机号码：</label>
+							<p class="value ng-binding">13866329297</p>
+						</div>
+					</div>
+
+					<div class="action_area">
+						<a class="button" ui-sref="chat({userName:user.UserName})" href="#">发消息</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
+	<script type="text/x-template" id="item-template">
+		<li>
+			<div :class="{bold: isFolder}" @click="toggle" @dblclick="changeType">
+				<div v-if="isUser" class="avatar">
+					<img class="user_header" v-bind:src="model.header">
+				</div>
+
+				{{model.name}}
+				<span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
+			</div>
+			<ul v-show="open" v-if="isFolder">
+				<item
+						class="item"
+						v-for="model in model.children"
+						:model="model">
+				</item>
+
+			</ul>
+		</li>
+	</script>
+	<script type="text/javascript" src="assets/vue.js"> </script>
+	<script type="text/javascript" src="assets/demo.js"> </script>
+	<script type="text/javascript" src="mainWin.js"> </script>
+</html>
