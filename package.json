@@ -2,7 +2,7 @@
   "name": "wechat2",
   "version": "0.0.1",
   "main":"./app/chat/index.html",
-//  "node-main": "js/node-main.js",
+  "bg-script": "./src/node-main.js",
   "window":{
     "title":"微聊",
     "width": 900,
@@ -13,8 +13,9 @@
     "toolbar":true,
     "transparent":false,
     "resize":true,
-    "frame":false,
-    "show": true
+    "frame":true,
+    "show": true,
+    "nodejs":true
   },
 
   "single-instance": true,
