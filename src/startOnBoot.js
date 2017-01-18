@@ -28,7 +28,7 @@ var startOnBoot = {
         var key = getAppKey();
         key.get(name, function(error, result){
             if(result){
-                //console.log("result.value : "+result.value);
+                console.log("result.value : "+result.value);
                 callback(result.value);
             }
             else{

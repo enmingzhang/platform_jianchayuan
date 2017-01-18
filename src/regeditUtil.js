@@ -11,13 +11,13 @@ var startOnBoot = require('./startOnBoot.js');
 //}
 
 // test create key
-startOnBoot.createKey("AAA_");
+//startOnBoot.createKey("AAA_");
 
 // test remove key (测试要小心清除注册表了， 最好备份注册表)
 //startOnBoot.removeKey("AAA_");
 
 // test create name for registry key
-startOnBoot.createName("testName", "testData", null);
+//startOnBoot.createName("testName", "testData", null);
 
 // test update name for registry key
 //startOnBoot.updateName("testName", "newTestData", null);
