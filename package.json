@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main":"./app/chat/index.html",
   "bg-script": "./src/node-main.js",
+  "nodejs":true,
   "window":{
     "title":"微聊",
     "width": 900,
@@ -14,8 +15,12 @@
     "transparent":false,
     "resize":true,
     "frame":true,
-    "show": true,
-    "nodejs":true
+    "show": true
+
+  },
+
+  "webkit": {
+    "plugin": true
   },
 
   "single-instance": true,
