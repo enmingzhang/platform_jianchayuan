@@ -2,7 +2,7 @@
  * Created by zhangguobin on 2017/1/16.
  */
 var WinReg = require('winreg');
-var startOnBoot = {
+var registry = {
     enableAutoStart: function(name, file, callback){
         var key = getKey();
         key.set(name, WinReg.REG_SZ, file, callback || noop);
@@ -28,7 +28,7 @@ var startOnBoot = {
         var key = getAppKey();
         key.get(name, function(error, result){
             if(result){
-                console.log("result.value : "+result.value);
+                //console.log("result.value : "+result.value);
                 callback(result.value);
             }
             else{
@@ -117,4 +117,4 @@ function getAppKey(){
 
 function noop(){}
 
-module.exports = startOnBoot;
+module.exports = registry;
